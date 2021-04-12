@@ -1,6 +1,6 @@
 import { Collection } from 'mongodb'
 import { MongoHelper } from '../helpers/mongo-helper'
-import { AccountMongoRepoistory } from './account'
+import { AccountMongoRepoistory } from './account-mongo-repository'
 
 let accountCollection: Collection
 
@@ -56,8 +56,6 @@ describe('Account Mongo Repository', () => {
     const account = await sut.loadByEmail('any_email@mail.com')
     expect(account).toBeFalsy()
   })
-
-  //  updateAccessToken (id: string, token: string): Promise<void>
 
   test('Should update the account accessToken on updateAccessToken successs', async () => {
     const sut = makeSut()
