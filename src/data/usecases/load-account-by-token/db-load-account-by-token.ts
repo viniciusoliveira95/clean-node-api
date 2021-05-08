@@ -2,7 +2,7 @@ import { AccountModel } from '../../../domain/models/account'
 import { LoadAccountByToken } from '../../../domain/usecases/load-account-by-token'
 import { Decrypter } from '../../protocols/criptography/decrypter'
 
-export class DbLoacAccountByToken implements LoadAccountByToken {
+export class DbLoadAccountByToken implements LoadAccountByToken {
   constructor (private readonly decrypter: Decrypter) {}
 
   async load (accessToken: string, role?: string): Promise<AccountModel> {
