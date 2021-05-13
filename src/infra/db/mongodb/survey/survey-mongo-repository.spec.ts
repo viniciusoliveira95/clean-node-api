@@ -1,11 +1,11 @@
 import { Collection } from 'mongodb'
 import { MongoHelper } from '../helpers/mongo-helper'
-import { SurveyMongoRepoistory } from './survey-mongo-repository'
+import { SurveyMongoRepository } from './survey-mongo-repository'
 
 let surveyCollection: Collection
 
-const makeSut = (): SurveyMongoRepoistory => {
-  return new SurveyMongoRepoistory()
+const makeSut = (): SurveyMongoRepository => {
+  return new SurveyMongoRepository()
 }
 
 describe('Survey Mongo Repository', () => {
