@@ -1,7 +1,7 @@
-import { DbAddAccount } from '../../../../../data/usecases/add-account/db-add-account'
-import { AccountMongoRepoistory } from '../../../../../infra/db/mongodb/account/account-mongo-repository'
-import { BcryptAdapter } from '../../../../../infra/cryptography/bcrypt/bcrypt-adapter'
-import { AddAccount } from '../../../../../domain/usecases/add-account'
+import { AddAccount } from '@/domain/usecases/add-account'
+import { DbAddAccount } from '@/data/usecases/add-account/db-add-account'
+import { AccountMongoRepoistory } from '@/infra/db/mongodb/account/account-mongo-repository'
+import { BcryptAdapter } from '@/infra/cryptography/bcrypt/bcrypt-adapter'
 
 export const makeDbAddAccount = (): AddAccount => {
   const salt = 12

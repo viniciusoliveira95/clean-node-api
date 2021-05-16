@@ -1,8 +1,8 @@
 
-import { CompareFieldsValidation, RequiredFieldValidation, ValidationComposite } from '../../../../../validation/validators'
-import { EmailValidation } from '../../../../../validation/validators/email-validation'
-import { Validation } from '../../../../../presentation/protocols/validation'
-import { EmailValidatorAdapter } from '../../../../../infra/validators/email-validator-adapter'
+import { Validation } from '@/presentation/protocols/validation'
+import { EmailValidatorAdapter } from '@/infra/validators/email-validator-adapter'
+import { CompareFieldsValidation, RequiredFieldValidation, ValidationComposite } from '@/validation/validators'
+import { EmailValidation } from '@/validation/validators/email-validation'
 
 export const makeSignUpValidation = (): ValidationComposite => {
   const validations: Validation[] = []
