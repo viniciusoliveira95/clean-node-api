@@ -43,7 +43,7 @@ describe('DbAddSurvey UseCase', () => {
     MockDate.reset()
   })
 
-  test('Should call AddSurveyRepository with correct vlaues', async () => {
+  test('Should call AddSurveyRepository with correct values', async () => {
     const { sut, addSurveyRepositoryStub } = makeSut()
     const addSpy = jest.spyOn(addSurveyRepositoryStub, 'add')
     const surveyData = makeFakeSurveyData()
