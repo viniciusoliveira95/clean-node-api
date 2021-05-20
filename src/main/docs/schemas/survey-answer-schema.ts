@@ -4,7 +4,7 @@ export const surveyAnswerSchema = {
     image: {
       type: 'string'
     },
-    asnwer: {
+    answer: {
       type: 'string'
     }
   }
