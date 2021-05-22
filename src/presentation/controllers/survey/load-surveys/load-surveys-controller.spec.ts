@@ -1,6 +1,6 @@
 import { LoadSurveysController } from './load-sruveys-controller'
 import { LoadSurveys } from './load-surveys-controller-protocols'
-import { ok, serverError, noContent } from '@/presentation/helpers/http/httpHelper'
+import { ok, serverError, noContent } from '@/presentation/helpers/http/http-helper'
 import { mockLoadSurveys } from '@/presentation/test'
 import { throwError, mockSurveyModels } from '@/domain/test'
 import MockDate from 'mockdate'

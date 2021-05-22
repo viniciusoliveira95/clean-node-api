@@ -2,7 +2,7 @@ import { SignUpController } from './signup-controller'
 import { AddAccount, Validation, Authentication } from './signup-controller-protocols'
 import { MissingParamError, ServerError, EmailInUserError } from '@/presentation/errors'
 import { HttpRequest } from '@/presentation/protocols'
-import { ok, badRequest, serverError, forbidden } from '@/presentation/helpers/http/httpHelper'
+import { ok, badRequest, serverError, forbidden } from '@/presentation/helpers/http/http-helper'
 import { mockAddAccount, mockAuthentication, mockValidation } from '@/presentation/test'
 import { throwError } from '@/domain/test'
 
