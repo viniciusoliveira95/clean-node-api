@@ -1,4 +1,5 @@
 import { AccountModel } from '@/domain/models/account'
+import { AuthenticationtModel } from '@/domain/models/authentication'
 import { mockAccountModel } from '@/domain/test'
 import { AddAccount, AddAccountParams } from '@/domain/usecases/account/add-account'
 import { Authentication, AuthenticationParams } from '@/domain/usecases/account/authentication'
@@ -15,8 +16,11 @@ export const mockAddAccount = (): AddAccount => {
 
 export const mockAuthentication = (): Authentication => {
   class AuthenticationStub implements Authentication {
-    async auth (authentication: AuthenticationParams): Promise<string> {
-      return 'any_token'
+    async auth (authentication: AuthenticationParams): Promise<AuthenticationtModel> {
+      return {
+        accessToken: 'any_token',
+        name: 'any_name'
+      }
     }
   }
   return new AuthenticationStub()
