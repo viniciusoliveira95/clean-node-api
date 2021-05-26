@@ -1,12 +1,12 @@
-import { LoadSurveyResultRepository, SaveSurveyResultRepository } from '@/data/protocols'
+import { ILoadSurveyResultRepository, ISaveSurveyResultRepository } from '@/data/protocols'
 import { SurveyResultModel } from '@/domain/models'
-import { SaveSurveyResultParams, SaveSurveyResult } from '@/domain/usecases'
+import { SaveSurveyResultParams, ISaveSurveyResult } from '@/domain/usecases'
 
 
-export class DbSaveSurveyResult implements SaveSurveyResult {
+export class DbSaveSurveyResult implements ISaveSurveyResult {
   constructor (
-    private readonly saveSurveyResultRepository: SaveSurveyResultRepository,
-    private readonly loadSurveyResultRepository: LoadSurveyResultRepository
+    private readonly saveSurveyResultRepository: ISaveSurveyResultRepository,
+    private readonly loadSurveyResultRepository: ILoadSurveyResultRepository
   ) {}
 
   async save (data: SaveSurveyResultParams): Promise<SurveyResultModel> {

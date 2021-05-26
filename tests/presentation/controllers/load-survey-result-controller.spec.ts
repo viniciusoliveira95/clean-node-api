@@ -3,7 +3,7 @@ import { mockSurveyResultModel, throwError } from '@/tests/domain/mocks'
 import { LoadSurveyResultController } from '@/presentation/controllers'
 import { forbidden, ok, serverError } from '@/presentation/helpers/'
 import { InvalidParamError } from '@/presentation/errors'
-import { LoadSurveyById, LoadSurveyResult } from '@/domain/usecases'
+import { ILoadSurveyById, ILoadSurveyResult } from '@/domain/usecases'
 
 import MockDate from 'mockdate'
 
@@ -18,8 +18,8 @@ const mockRequest = (): HttpRequest => ({
 
 type SutTypes = {
   sut: LoadSurveyResultController
-  loadSurveyByIdStub: LoadSurveyById
-  loadSurveyResultStub: LoadSurveyResult
+  loadSurveyByIdStub: ILoadSurveyById
+  loadSurveyResultStub: ILoadSurveyResult
 }
 
 const makeSut = (): SutTypes => {

@@ -1,9 +1,9 @@
 import { mockAddSurvey, mockValidation } from '@/tests/presentation/mocks'
 import { throwError } from '@/tests/domain/mocks'
-import { HttpRequest, Validation } from '@/presentation/protocols'
+import { HttpRequest, IValidation } from '@/presentation/protocols'
 import { AddSurveyController } from '@/presentation/controllers'
 import { badRequest, serverError, noContent } from '@/presentation/helpers'
-import { AddSurvey } from '@/domain/usecases'
+import { IAddSurvey } from '@/domain/usecases'
 import MockDate from 'mockdate'
 
 const mockRequest = (): HttpRequest => ({
@@ -19,8 +19,8 @@ const mockRequest = (): HttpRequest => ({
 
 type SutTypes = {
   sut: AddSurveyController
-  validationStub: Validation
-  addSurveyStub: AddSurvey
+  validationStub: IValidation
+  addSurveyStub: IAddSurvey
 }
 
 const makeSut = (): SutTypes => {

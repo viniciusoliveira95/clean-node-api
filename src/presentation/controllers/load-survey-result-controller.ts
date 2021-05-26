@@ -1,12 +1,12 @@
-import { Controller, HttpRequest, HttpResponse } from '@/presentation/protocols'
+import { IController, HttpRequest, HttpResponse } from '@/presentation/protocols'
 import { InvalidParamError } from '@/presentation/errors'
 import { forbidden, ok, serverError } from '@/presentation/helpers'
-import { LoadSurveyById, LoadSurveyResult } from '@/domain/usecases'
+import { ILoadSurveyById, ILoadSurveyResult } from '@/domain/usecases'
 
-export class LoadSurveyResultController implements Controller {
+export class LoadSurveyResultController implements IController {
   constructor (
-    private readonly loadSurveyById: LoadSurveyById,
-    private readonly loadSurveyResult: LoadSurveyResult
+    private readonly loadSurveyById: ILoadSurveyById,
+    private readonly loadSurveyResult: ILoadSurveyResult
   ) {}
 
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {

@@ -7,6 +7,6 @@ export type SaveSurveyResultParams = {
   date: Date
 }
 
-export interface SaveSurveyResult {
+export interface ISaveSurveyResult {
   save (data: SaveSurveyResultParams): Promise<SurveyResultModel>
 }

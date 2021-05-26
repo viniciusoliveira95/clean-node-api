@@ -1,12 +1,12 @@
-import { LoadSurveyResultRepository, LoadSurveyByIdRepository } from '@/data/protocols'
+import { ILoadSurveyResultRepository, ILoadSurveyByIdRepository } from '@/data/protocols'
 import { SurveyResultModel } from '@/domain/models'
-import { LoadSurveyResult } from '@/domain/usecases'
+import { ILoadSurveyResult } from '@/domain/usecases'
 
 
-export class DbLoadSurveyResult implements LoadSurveyResult {
+export class DbLoadSurveyResult implements ILoadSurveyResult {
   constructor (
-    private readonly loadSurveyResultRepository: LoadSurveyResultRepository,
-    private readonly loadSurveyByIdRepository: LoadSurveyByIdRepository
+    private readonly loadSurveyResultRepository: ILoadSurveyResultRepository,
+    private readonly loadSurveyByIdRepository: ILoadSurveyByIdRepository
   ) {}
 
   async load (surveyId: string, accountId: string): Promise<SurveyResultModel> {

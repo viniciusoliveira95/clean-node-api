@@ -1,10 +1,10 @@
 import { mockAuthentication, mockValidation } from '@/tests/presentation/mocks'
 import { throwError } from '@/tests/domain/mocks'
 import { LoginController } from '@/presentation/controllers'
-import { HttpRequest, Validation } from '@/presentation/protocols'
+import { HttpRequest, IValidation } from '@/presentation/protocols'
 import { badRequest, ok, serverError, unauthorized } from '@/presentation/helpers'
 import { MissingParamError } from '@/presentation/errors'
-import { Authentication } from '@/domain/usecases'
+import { IAuthentication } from '@/domain/usecases'
 
 const mockRequest = (): HttpRequest => ({
   body: {
@@ -15,8 +15,8 @@ const mockRequest = (): HttpRequest => ({
 
 type SutTypes = {
   sut: LoginController
-  authenticationStub: Authentication
-  validationStub: Validation
+  authenticationStub: IAuthentication
+  validationStub: IValidation
 }
 
 const makeSut = (): SutTypes => {

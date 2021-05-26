@@ -1,12 +1,12 @@
 import { mockLogErrorRepository } from '@/tests/data/mocks'
 import { mockAccountModel } from '@/tests/domain/mocks'
 import { LogControllerDecorator } from '@/main/decorators'
-import { LogErrorRepository } from '@/data/protocols'
-import { Controller, HttpRequest, HttpResponse } from '@/presentation/protocols'
+import { ILogErrorRepository } from '@/data/protocols'
+import { IController, HttpRequest, HttpResponse } from '@/presentation/protocols'
 import { serverError, ok } from '@/presentation/helpers'
 
-const makeController = (): Controller => {
-  class ControllerStub implements Controller {
+const makeController = (): IController => {
+  class ControllerStub implements IController {
     async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
       return await Promise.resolve(ok(mockAccountModel()))
     }
@@ -31,8 +31,8 @@ const mockServerError = (): HttpResponse => {
 
 type SutTypes = {
   sut: LogControllerDecorator
-  controllerStub: Controller
-  logErrorRepositoryStub: LogErrorRepository
+  controllerStub: IController
+  logErrorRepositoryStub: ILogErrorRepository
 }
 
 const makeSut = (): SutTypes => {

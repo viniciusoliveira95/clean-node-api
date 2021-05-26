@@ -1,11 +1,11 @@
 import { mockValidation } from '@/tests/validation/mock'
 import { ValidationComposite } from '@/validation/validators'
 import { MissingParamError } from '@/presentation/errors'
-import { Validation } from '@/presentation/protocols'
+import { IValidation } from '@/presentation/protocols'
 
 type SutTypes = {
   sut: ValidationComposite
-  validationStubs: Validation[]
+  validationStubs: IValidation[]
 }
 
 const makeSut = (): SutTypes => {

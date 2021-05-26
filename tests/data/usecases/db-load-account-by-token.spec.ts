@@ -1,12 +1,12 @@
 import { mockDecrypter, mockLoadAccountByTokenRepository } from '@/tests/data/mocks'
 import { throwError, mockAccountModel } from '@/tests/domain/mocks'
 import { DbLoadAccountByToken } from '@/data/usecases'
-import { Decrypter, LoadAccountByTokenRepository } from '@/data/protocols'
+import { IDecrypter, ILoadAccountByTokenRepository } from '@/data/protocols'
 
 type SutTypes = {
   sut: DbLoadAccountByToken
-  decrypterStub: Decrypter
-  loadAccountByTokenRepositoryStub: LoadAccountByTokenRepository
+  decrypterStub: IDecrypter
+  loadAccountByTokenRepositoryStub: ILoadAccountByTokenRepository
 }
 
 const makeSut = (): SutTypes => {

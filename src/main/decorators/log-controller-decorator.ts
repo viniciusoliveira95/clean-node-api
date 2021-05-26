@@ -1,10 +1,10 @@
-import { LogErrorRepository } from '@/data/protocols'
-import { Controller, HttpResponse, HttpRequest } from '@/presentation/protocols'
+import { ILogErrorRepository } from '@/data/protocols'
+import { IController, HttpResponse, HttpRequest } from '@/presentation/protocols'
 
-export class LogControllerDecorator implements Controller {
+export class LogControllerDecorator implements IController {
   constructor (
-    private readonly controller: Controller,
-    private readonly logErrorRepository: LogErrorRepository
+    private readonly controller: IController,
+    private readonly logErrorRepository: ILogErrorRepository
   ) {}
 
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {

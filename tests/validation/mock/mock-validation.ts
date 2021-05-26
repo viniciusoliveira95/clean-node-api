@@ -1,7 +1,7 @@
-import { Validation } from '@/presentation/protocols'
+import { IValidation } from '@/presentation/protocols'
 
-export const mockValidation = (): Validation => {
-  class ValidationStub implements Validation {
+export const mockValidation = (): IValidation => {
+  class ValidationStub implements IValidation {
     validate (input: any): Error {
       return null
     }

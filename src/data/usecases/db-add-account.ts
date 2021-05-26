@@ -1,13 +1,13 @@
-import { Hasher, AddAccountRepository, LoadAccountByEmailRepository } from '@/data/protocols'
-import { AddAccount, AddAccountParams } from '@/domain/usecases'
+import { IHasher, IAddAccountRepository, ILoadAccountByEmailRepository } from '@/data/protocols'
+import { IAddAccount, AddAccountParams } from '@/domain/usecases'
 import { AccountModel } from '@/domain/models'
 
 
-export class DbAddAccount implements AddAccount {
+export class DbAddAccount implements IAddAccount {
   constructor (
-    private readonly hasher: Hasher,
-    private readonly addAccountRepository: AddAccountRepository,
-    private readonly loadAccountByEmailRepository: LoadAccountByEmailRepository
+    private readonly hasher: IHasher,
+    private readonly addAccountRepository: IAddAccountRepository,
+    private readonly loadAccountByEmailRepository: ILoadAccountByEmailRepository
 
   ) {}
 

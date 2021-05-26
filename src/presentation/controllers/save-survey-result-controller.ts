@@ -1,12 +1,12 @@
 import { InvalidParamError } from '@/presentation/errors'
 import { forbidden, ok, serverError } from '@/presentation/helpers'
-import { Controller, HttpRequest, HttpResponse } from '@/presentation/protocols'
-import { SaveSurveyResult, LoadSurveyById } from '@/domain/usecases'
+import { IController, HttpRequest, HttpResponse } from '@/presentation/protocols'
+import { ISaveSurveyResult, ILoadSurveyById } from '@/domain/usecases'
 
-export class SaveSurveyResultController implements Controller {
+export class SaveSurveyResultController implements IController {
   constructor (
-    private readonly loadSurveyById: LoadSurveyById,
-    private readonly saveSurveyResult: SaveSurveyResult
+    private readonly loadSurveyById: ILoadSurveyById,
+    private readonly saveSurveyResult: ISaveSurveyResult
   ) {}
 
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {

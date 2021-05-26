@@ -1,12 +1,12 @@
-import { Decrypter, LoadAccountByTokenRepository } from '@/data/protocols'
+import { IDecrypter, ILoadAccountByTokenRepository } from '@/data/protocols'
 import { AccountModel } from '@/domain/models'
-import { LoadAccountByToken } from '@/domain/usecases'
+import { ILoadAccountByToken } from '@/domain/usecases'
 
 
-export class DbLoadAccountByToken implements LoadAccountByToken {
+export class DbLoadAccountByToken implements ILoadAccountByToken {
   constructor (
-    private readonly decrypter: Decrypter,
-    private readonly loadAccountByTokenRepository: LoadAccountByTokenRepository
+    private readonly decrypter: IDecrypter,
+    private readonly loadAccountByTokenRepository: ILoadAccountByTokenRepository
   ) {}
 
   async load (accessToken: string, role?: string): Promise<AccountModel> {

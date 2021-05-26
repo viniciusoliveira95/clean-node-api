@@ -4,7 +4,7 @@ import { AuthMiddleware } from '@/presentation/middlewares'
 import { forbidden, ok, serverError } from '@/presentation/helpers'
 import { AccessDeniedError } from '@/presentation/errors'
 import { HttpRequest } from '@/presentation/protocols'
-import { LoadAccountByToken } from '@/domain/usecases'
+import { ILoadAccountByToken } from '@/domain/usecases'
 
 const mockRequest = (): HttpRequest => ({
   headers: {
@@ -14,7 +14,7 @@ const mockRequest = (): HttpRequest => ({
 
 type SutTypes = {
   sut: AuthMiddleware
-  loadAccountByTokenStub: LoadAccountByToken
+  loadAccountByTokenStub: ILoadAccountByToken
 }
 
 const makeSut = (role?: string): SutTypes => {

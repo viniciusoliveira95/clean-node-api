@@ -3,7 +3,7 @@ import { throwError, mockSurveyModels } from '@/tests/domain/mocks'
 import { LoadSurveysController } from '@/presentation/controllers'
 import { HttpRequest } from '@/presentation/protocols'
 import { ok, serverError, noContent } from '@/presentation/helpers'
-import { LoadSurveys } from '@/domain/usecases'
+import { ILoadSurveys } from '@/domain/usecases'
 
 import MockDate from 'mockdate'
 
@@ -11,7 +11,7 @@ const mockRequest = (): HttpRequest => ({ accountId: 'any_id' })
 
 type SutTypes = {
   sut: LoadSurveysController
-  loadSurveysStub: LoadSurveys
+  loadSurveysStub: ILoadSurveys
 }
 
 const makeSut = (): SutTypes => {

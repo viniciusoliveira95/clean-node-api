@@ -1,11 +1,11 @@
 import { mockEmailValidator } from '@/tests/validation/mock'
 import { EmailValidation } from '@/validation/validators'
-import { EmailValidator } from '@/validation/protocols'
+import { IEmailValidator } from '@/validation/protocols'
 import { InvalidParamError } from '@/presentation/errors'
 
 type SutTypes = {
   sut: EmailValidation
-  emailValidatorStub: EmailValidator
+  emailValidatorStub: IEmailValidator
 }
 
 const makeSut = (): SutTypes => {

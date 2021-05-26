@@ -1,13 +1,13 @@
-import { Encrypter, HashComparer, LoadAccountByEmailRepository, UpdateAccessTokenRepository } from '@/data/protocols'
+import { IEncrypter, IHashComparer, ILoadAccountByEmailRepository, IUpdateAccessTokenRepository } from '@/data/protocols'
 import { AuthenticationtModel  } from '@/domain/models'
-import { Authentication, AuthenticationParams } from '@/domain/usecases'
+import { IAuthentication, AuthenticationParams } from '@/domain/usecases'
 
-export class DbAuthentication implements Authentication {
+export class DbAuthentication implements IAuthentication {
   constructor (
-    private readonly loadAccountByEmailRepository: LoadAccountByEmailRepository,
-    private readonly hashComparer: HashComparer,
-    private readonly encrypter: Encrypter,
-    private readonly updateAcessTokenRepository: UpdateAccessTokenRepository
+    private readonly loadAccountByEmailRepository: ILoadAccountByEmailRepository,
+    private readonly hashComparer: IHashComparer,
+    private readonly encrypter: IEncrypter,
+    private readonly updateAcessTokenRepository: IUpdateAccessTokenRepository
   ) {}
 
   async auth (authentication: AuthenticationParams): Promise<AuthenticationtModel> {

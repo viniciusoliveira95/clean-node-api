@@ -1,7 +1,7 @@
-import { LogErrorRepository } from '@/data/protocols'
+import { ILogErrorRepository } from '@/data/protocols'
 
-export const mockLogErrorRepository = (): LogErrorRepository => {
-  class LogErrorRepositoryStub implements LogErrorRepository {
+export const mockLogErrorRepository = (): ILogErrorRepository => {
+  class LogErrorRepositoryStub implements ILogErrorRepository {
     async logError (stack: string): Promise<void> {
       return await Promise.resolve()
     }

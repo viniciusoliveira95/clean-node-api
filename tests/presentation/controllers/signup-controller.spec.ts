@@ -3,8 +3,8 @@ import { throwError } from '@/tests/domain/mocks'
 import { SignUpController } from '@/presentation/controllers'
 import { MissingParamError, ServerError, EmailInUserError } from '@/presentation/errors'
 import { ok, badRequest, serverError, forbidden } from '@/presentation/helpers'
-import { HttpRequest, Validation } from '@/presentation/protocols'
-import { AddAccount, Authentication } from '@/domain/usecases'
+import { HttpRequest, IValidation } from '@/presentation/protocols'
+import { IAddAccount, IAuthentication } from '@/domain/usecases'
 
 const mockRequest = (): HttpRequest => ({
   body: {
@@ -17,9 +17,9 @@ const mockRequest = (): HttpRequest => ({
 
 type SutTypes = {
   sut: SignUpController
-  addAccountStub: AddAccount
-  validationStub: Validation
-  authenticationStub: Authentication
+  addAccountStub: IAddAccount
+  validationStub: IValidation
+  authenticationStub: IAuthentication
 }
 
 const makeSut = (): SutTypes => {

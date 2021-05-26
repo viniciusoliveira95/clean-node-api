@@ -1,12 +1,12 @@
 import { mockLoadSurveyByIdRepository } from '@/tests/data/mocks'
 import { mockSurveyModel, throwError } from '@/tests/domain/mocks'
 import { DbLoadSurveyById } from '@/data/usecases'
-import { LoadSurveyByIdRepository } from '@/data/protocols'
+import { ILoadSurveyByIdRepository } from '@/data/protocols'
 import MockDate from 'mockdate'
 
 type SutTypes = {
   sut: DbLoadSurveyById
-  loadSurveyByIdRepositoryStub: LoadSurveyByIdRepository
+  loadSurveyByIdRepositoryStub: ILoadSurveyByIdRepository
 }
 
 const makeSut = (): SutTypes => {
