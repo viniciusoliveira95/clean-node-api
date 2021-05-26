@@ -1,7 +1,7 @@
-import { SaveSurveyResultRepository, LoadSurveyResultRepository } from '@/data/protocols'
-import { SurveyResultModel } from '@/domain/models/survey-result'
 import { mockSurveyResultModel } from '@/tests/domain/mocks'
-import { SaveSurveyResultParams } from '@/domain/usecases/save-survey-result'
+import { SaveSurveyResultRepository, LoadSurveyResultRepository } from '@/data/protocols'
+import { SurveyResultModel } from '@/domain/models'
+import { SaveSurveyResultParams } from '@/domain/usecases'
 
 export const mockSaveSurveyResultRepository = (): SaveSurveyResultRepository => {
   class SaveSurveyResultRepositoryStub implements SaveSurveyResultRepository {

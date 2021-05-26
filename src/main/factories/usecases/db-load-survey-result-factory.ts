@@ -1,4 +1,4 @@
-import { LoadSurveyResult } from '@/domain/usecases/load-survey-result'
+import { LoadSurveyResult } from '@/domain/usecases'
 import { DbLoadSurveyResult } from '@/data/usecases'
 import { SurveyResultMongoRepository, SurveyMongoRepository } from '@/infra/db'
 

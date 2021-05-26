@@ -1,4 +1,4 @@
-import { EmailValidator } from '@/validation/protocols/emailValidator'
+import { EmailValidator } from '@/validation/protocols'
 
 export const mockEmailValidator = (): EmailValidator => {
   class EmailValidatorStub implements EmailValidator {

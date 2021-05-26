@@ -1,8 +1,10 @@
-import { LoadSurveysController } from '@/presentation/controllers'
-import { LoadSurveys, HttpRequest } from '@/presentation/controllers/load-surveys-controller-protocols'
-import { ok, serverError, noContent } from '@/presentation/helpers'
 import { mockLoadSurveys } from '@/tests/presentation/mocks'
 import { throwError, mockSurveyModels } from '@/tests/domain/mocks'
+import { LoadSurveysController } from '@/presentation/controllers'
+import { HttpRequest } from '@/presentation/protocols'
+import { ok, serverError, noContent } from '@/presentation/helpers'
+import { LoadSurveys } from '@/domain/usecases'
+
 import MockDate from 'mockdate'
 
 const mockRequest = (): HttpRequest => ({ accountId: 'any_id' })

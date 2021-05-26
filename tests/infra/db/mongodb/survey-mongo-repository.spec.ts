@@ -1,6 +1,6 @@
-import { SurveyMongoRepository, MongoHelper } from '@/infra/db'
 import { mockAddAccountParams } from '@/tests/domain/mocks'
-import { AccountModel } from '@/domain/models/account'
+import { SurveyMongoRepository, MongoHelper } from '@/infra/db'
+import { AccountModel } from '@/domain/models'
 import { Collection } from 'mongodb'
 
 let surveyCollection: Collection

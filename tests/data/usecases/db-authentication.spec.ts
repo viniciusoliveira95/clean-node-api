@@ -1,3 +1,5 @@
+import { mockEncrypter, mockHashComparer, mockLoadAccountByEmailRepository, mockUpdateAccessTokenRepository } from '@/tests/data/mocks'
+import { mockFakeAuthentication, throwError } from '@/tests/domain/mocks'
 import {
   HashComparer,
   Encrypter,
@@ -5,8 +7,6 @@ import {
   UpdateAccessTokenRepository
 } from '@/data/protocols'
 import { DbAuthentication } from '@/data/usecases'
-import { mockEncrypter, mockHashComparer, mockLoadAccountByEmailRepository, mockUpdateAccessTokenRepository } from '@/tests/data/mocks'
-import { mockFakeAuthentication, throwError } from '@/tests/domain/mocks'
 
 type SutTypes = {
   sut: DbAuthentication

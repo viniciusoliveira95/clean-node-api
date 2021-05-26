@@ -1,6 +1,5 @@
-import { AccountMongoRepoistory } from '@/infra/db/mongodb'
-import { MongoHelper } from '@/infra/db/mongodb/mongo-helper'
-import { mockAddAccountParams } from '@/tests/domain/mocks/mock-account'
+import { mockAddAccountParams } from '@/tests/domain/mocks'
+import { AccountMongoRepoistory, MongoHelper } from '@/infra/db'
 import { Collection } from 'mongodb'
 
 let accountCollection: Collection
