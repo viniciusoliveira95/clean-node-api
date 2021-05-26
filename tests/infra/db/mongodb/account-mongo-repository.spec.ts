@@ -1,5 +1,5 @@
-import { AccountMongoRepoistory } from '@/infra/db/mongodb/account/account-mongo-repository'
-import { MongoHelper } from '@/infra/db/mongodb/helpers/mongo-helper'
+import { AccountMongoRepoistory } from '@/infra/db/mongodb'
+import { MongoHelper } from '@/infra/db/mongodb/mongo-helper'
 import { mockAddAccountParams } from '@/tests/domain/mocks/mock-account'
 import { Collection } from 'mongodb'
 

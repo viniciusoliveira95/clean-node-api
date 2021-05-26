@@ -2,7 +2,7 @@ import { LogControllerDecorator } from '../../../src/main/decorators/log-control
 import { LogErrorRepository } from '@/data/protocols/db/log/log-error-repository'
 import { mockLogErrorRepository } from '@/tests/data/mocks'
 import { Controller, HttpRequest, HttpResponse } from '@/presentation/protocols'
-import { serverError, ok } from '@/presentation/helpers/http/http-helper'
+import { serverError, ok } from '@/presentation/helpers'
 import { mockAccountModel } from '@/tests/domain/mocks'
 
 const makeController = (): Controller => {

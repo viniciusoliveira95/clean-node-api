@@ -1,6 +1,6 @@
 import { AuthMiddleware } from '../../../src/presentation/middlewares/auth-middleware'
 import { LoadAccountByToken, HttpRequest } from '../../../src/presentation/middlewares/aut-middleware-protocols'
-import { forbidden, ok, serverError } from '@/presentation/helpers/http/http-helper'
+import { forbidden, ok, serverError } from '@/presentation/helpers'
 import { mockLoadAccountByToken } from '@/tests/presentation/mocks'
 import { AccessDeniedError } from '@/presentation/errors'
 import { throwError } from '@/tests/domain/mocks'
