@@ -1,10 +1,10 @@
 import { mockSurveyModel, mockSurveyModels } from '@/tests/domain/mocks'
 import { SurveyModel } from '@/domain/models'
-import { IAddSurvey, AddSurveyParams, ILoadSurveyById, ILoadSurveys } from '@/domain/usecases'
+import { IAddSurvey, ILoadSurveyById, ILoadSurveys } from '@/domain/usecases'
 
 export const mockAddSurvey = (): IAddSurvey => {
   class AddSurveyStub implements IAddSurvey {
-    async add (data: AddSurveyParams): Promise<void> {
+    async add (data: IAddSurvey.Params): Promise<void> {
       return await Promise.resolve()
     }
   }
