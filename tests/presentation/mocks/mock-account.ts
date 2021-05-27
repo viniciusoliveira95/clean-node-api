@@ -1,6 +1,6 @@
 import { mockAccountModel } from '@/tests/domain/mocks'
-import { AccountModel, AuthenticationtModel } from '@/domain/models'
-import { IAuthentication, AuthenticationParams, IAddAccount, ILoadAccountByToken } from '@/domain/usecases'
+import { AccountModel } from '@/domain/models'
+import { IAuthentication, IAddAccount, ILoadAccountByToken } from '@/domain/usecases'
 
 export const mockAddAccount = (): IAddAccount => {
   class AddAccountStub implements IAddAccount {
@@ -13,7 +13,7 @@ export const mockAddAccount = (): IAddAccount => {
 
 export const mockAuthentication = (): IAuthentication => {
   class AuthenticationStub implements IAuthentication {
-    async auth (authentication: AuthenticationParams): Promise<AuthenticationtModel> {
+    async auth (authentication: IAuthentication.Params): Promise<IAuthentication.Result> {
       return {
         accessToken: 'any_token',
         name: 'any_name'
