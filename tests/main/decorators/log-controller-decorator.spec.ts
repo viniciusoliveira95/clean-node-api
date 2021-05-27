@@ -2,19 +2,19 @@ import { mockLogErrorRepository } from '@/tests/data/mocks'
 import { mockAccountModel } from '@/tests/domain/mocks'
 import { LogControllerDecorator } from '@/main/decorators'
 import { ILogErrorRepository } from '@/data/protocols'
-import { IController, HttpRequest, HttpResponse } from '@/presentation/protocols'
+import { IController, HttpResponse } from '@/presentation/protocols'
 import { serverError, ok } from '@/presentation/helpers'
 
 const makeController = (): IController => {
   class ControllerStub implements IController {
-    async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
+    async handle (request: any): Promise<HttpResponse> {
       return await Promise.resolve(ok(mockAccountModel()))
     }
   }
   return new ControllerStub()
 }
 
-const mockRequest = (): HttpRequest => ({
+const mockRequest = (): any => ({
   body: {
     name: 'any_name',
     email: 'any_email@mail.com',

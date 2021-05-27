@@ -1,6 +1,6 @@
 import { EmailInUserError } from '@/presentation/errors'
 import { badRequest, serverError, ok, forbidden } from '@/presentation/helpers'
-import { IController, HttpResponse, HttpRequest, IValidation } from '@/presentation/protocols'
+import { IController, HttpResponse, IValidation } from '@/presentation/protocols'
 import { IAddAccount, IAuthentication } from '@/domain/usecases'
 
 export class SignUpController implements IController {
@@ -10,13 +10,13 @@ export class SignUpController implements IController {
     private readonly authentication: IAuthentication
   ) {}
 
-  async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
+  async handle (request: SignUpController.Request): Promise<HttpResponse> {
     try {
-      const error = this.validation.validate(httpRequest.body)
+      const error = this.validation.validate(request)
       if (error) {
         return badRequest(error)
       }
-      const { name, email, password } = httpRequest.body
+      const { name, email, password } = request
       const account = await this.addAccount.add({
         name,
         email,
@@ -33,5 +33,14 @@ export class SignUpController implements IController {
     } catch (error) {
       return serverError(error)
     }
+  }
+}
+
+export namespace SignUpController {
+  export type Request = {
+    name: string
+    email: string
+    password: string
+    passwordConfirmation: string
   }
 }

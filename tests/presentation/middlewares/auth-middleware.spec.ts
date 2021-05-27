@@ -3,13 +3,10 @@ import { throwError } from '@/tests/domain/mocks'
 import { AuthMiddleware } from '@/presentation/middlewares'
 import { forbidden, ok, serverError } from '@/presentation/helpers'
 import { AccessDeniedError } from '@/presentation/errors'
-import { HttpRequest } from '@/presentation/protocols'
 import { ILoadAccountByToken } from '@/domain/usecases'
 
-const mockRequest = (): HttpRequest => ({
-  headers: {
-    'x-access-token': 'any_token'
-  }
+const mockRequest = (): AuthMiddleware.Request => ({
+  accessToken: 'any_token'
 })
 
 type SutTypes = {

@@ -4,16 +4,11 @@ import { LoadSurveyResultController } from '@/presentation/controllers'
 import { forbidden, ok, serverError } from '@/presentation/helpers/'
 import { InvalidParamError } from '@/presentation/errors'
 import { ILoadSurveyById, ILoadSurveyResult } from '@/domain/usecases'
-
 import MockDate from 'mockdate'
 
-import { HttpRequest } from '@/presentation/protocols'
-
-const mockRequest = (): HttpRequest => ({
+const mockRequest = (): LoadSurveyResultController.Request => ({
   accountId: 'any_account_id',
-  params: {
-    surveyId: 'any_id'
-  }
+  surveyId: 'any_id'
 })
 
 type SutTypes = {

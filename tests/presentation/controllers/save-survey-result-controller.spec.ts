@@ -3,17 +3,12 @@ import { mockSurveyResultModel, throwError } from '@/tests/domain/mocks'
 import { SaveSurveyResultController } from '@/presentation/controllers'
 import { forbidden, ok, serverError } from '@/presentation/helpers'
 import { InvalidParamError } from '@/presentation/errors'
-import { HttpRequest } from '@/presentation/protocols'
 import { ISaveSurveyResult, ILoadSurveyById } from '@/domain/usecases'
 import MockDate from 'mockdate'
 
-const mockRequest = (): HttpRequest => ({
-  params: {
-    surveyId: 'any_survey_id'
-  },
-  body: {
-    answer: 'any_answer'
-  },
+const mockRequest = (): SaveSurveyResultController.Request => ({
+  surveyId: 'any_survey_id',
+  answer: 'any_answer',
   accountId: 'any_account_id'
 })
 
@@ -67,12 +62,9 @@ describe('SaveSurveyResultController', () => {
   test('Should return 403 if an invalid answer is provided', async () => {
     const { sut } = makeSut()
     const httpResponse = await sut.handle({
-      params: {
-        surveyId: 'any_survey_id'
-      },
-      body: {
-        answer: 'wrong_answer'
-      }
+      accountId: 'any_account_id',
+      surveyId: 'any_survey_id',
+      answer: 'wrong_answer'
     })
     expect(httpResponse).toEqual(forbidden(new InvalidParamError('answer')))
   })
