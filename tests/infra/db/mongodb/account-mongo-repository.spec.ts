@@ -121,4 +121,19 @@ describe('Account Mongo Repository', () => {
       expect(account).toBeFalsy()
     })
   })
+
+  describe('checkByEmail()', () => {
+    test('Should return true if email is valid', async () => {
+      const sut = makeSut()
+      await accountCollection.insertOne(mockAddAccountParams())
+      const exists = await sut.checkByEmail('any_email@mail.com')
+      expect(exists).toBe(true)
+    })
+
+    test('Should return false if email is not valid', async () => {
+      const sut = makeSut()
+      const exists = await sut.checkByEmail('any_email@mail.com')
+      expect(exists).toBe(false)
+    })
+  })
 })
