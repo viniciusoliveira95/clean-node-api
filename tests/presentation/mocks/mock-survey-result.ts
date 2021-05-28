@@ -1,10 +1,9 @@
 import { mockSurveyResultModel } from '@/tests/domain/mocks'
-import { SurveyResultModel } from '@/domain/models'
-import { ILoadSurveyResult, ISaveSurveyResult, SaveSurveyResultParams } from '@/domain/usecases'
+import { ILoadSurveyResult, ISaveSurveyResult } from '@/domain/usecases'
 
 export const mockSaveSurveyResult = (): ISaveSurveyResult => {
   class SaveSurveyResultStub implements ISaveSurveyResult {
-    async save (data: SaveSurveyResultParams): Promise<SurveyResultModel> {
+    async save (data: ISaveSurveyResult.Params): Promise<ISaveSurveyResult.Result> {
       return await Promise.resolve(mockSurveyResultModel())
     }
   }
@@ -13,7 +12,7 @@ export const mockSaveSurveyResult = (): ISaveSurveyResult => {
 
 export const mockLoadSurveyResult = (): ILoadSurveyResult => {
   class LoadSurveyResultStub implements ILoadSurveyResult {
-    async load (surveyId: string, accounntId: string): Promise<SurveyResultModel> {
+    async load (surveyId: string, accounntId: string): Promise<ILoadSurveyResult.Result> {
       return await Promise.resolve(mockSurveyResultModel())
     }
   }
