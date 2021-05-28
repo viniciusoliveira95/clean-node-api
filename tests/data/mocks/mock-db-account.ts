@@ -1,6 +1,4 @@
-import { mockAccountModel } from '@/tests/domain/mocks'
 import { IAddAccountRepository, ILoadAccountByEmailRepository, ILoadAccountByTokenRepository, IUpdateAccessTokenRepository } from '@/data/protocols'
-import { AccountModel } from '@/domain/models/account'
 
 export const mockAddAccountRepository = (): IAddAccountRepository => {
   class AddAccountRepositoryStub implements IAddAccountRepository {
@@ -13,8 +11,12 @@ export const mockAddAccountRepository = (): IAddAccountRepository => {
 
 export const mockLoadAccountByEmailRepository = (): ILoadAccountByEmailRepository => {
   class LoadAccountByEmailRepositoryStub implements ILoadAccountByEmailRepository {
-    async loadByEmail (email: string): Promise<AccountModel> {
-      return await Promise.resolve(mockAccountModel())
+    async loadByEmail (email: string): Promise<ILoadAccountByEmailRepository.Result> {
+      return await Promise.resolve({
+        id: 'any_id',
+        name: 'any_name',
+        password: 'any_password'
+      })
     }
   }
   return new LoadAccountByEmailRepositoryStub()
@@ -23,7 +25,7 @@ export const mockLoadAccountByEmailRepository = (): ILoadAccountByEmailRepositor
 export const mockLoadAccountByTokenRepository = (): ILoadAccountByTokenRepository => {
   class LoadAccountByTokenRepositoryStub implements ILoadAccountByTokenRepository {
     async loadByToken (token: string, role?: string): Promise<ILoadAccountByTokenRepository.Result> {
-      return await Promise.resolve(mockAccountModel())
+      return await Promise.resolve({ id: 'any_id' })
     }
   }
   return new LoadAccountByTokenRepositoryStub()
